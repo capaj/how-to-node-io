@@ -14,7 +14,6 @@ Note: This is a work in progress, I will continue to add to this.
   ```
   // imports at top
   var fs = require('fs');
-  var zlib = require('zlib');
   ```
   ```
   // Modern approach
@@ -51,7 +50,6 @@ Note: This is a work in progress, I will continue to add to this.
   ```
   // imports at top
   var fs = require('fs');
-  var zlib = require('zlib');
   ```
   ```
   // Modern approach
