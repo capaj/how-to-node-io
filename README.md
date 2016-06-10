@@ -12,6 +12,11 @@ Note: This is a work in progress, I will continue to add to this.
   - The largest file size you can read here is roughly 2gb, anything bigger will throw this error: `RangeError: File size is greater than possible Buffer: 0x7fffffff bytes at FSReqWrap.readFileAfterStat [as oncomplete] (fs.js:386:11)`
   - Because this is read in memory - it is not the optimal solution for files exceeding hundreds of megabytes, please see method below this one.
   ```
+  // imports at top
+  var fs = require('fs');
+  var zlib = require('zlib');
+  ```
+  ```
   // Modern approach
   function readFile(fileName, options) {
       return new Promise(function(resolve, reject) {
@@ -43,6 +48,11 @@ Note: This is a work in progress, I will continue to add to this.
   - The callback will have the data in chunks of ~512kb at a time (taking in any more bytes doesnt really help performance)
   - The example demonstrates reading a 7gb file in roughly 5minutes (212 seconds) (https://dumps.wikimedia.org/other/wikibase/wikidatawiki/ - latest-all.json.gz)
   - Note: the data here is gzipped and will not be converted to readable format, for unzipping and streaming readable data see the method below this one.
+  ```
+  // imports at top
+  var fs = require('fs');
+  var zlib = require('zlib');
+  ```
   ```
   // Modern approach
   function readFileStream(fileName, cb, options) {
@@ -80,6 +90,11 @@ Note: This is a work in progress, I will continue to add to this.
   })
   ```
 - Reading and unzipping larger files (7gb file fize)
+  ```
+  // imports at top
+  var fs = require('fs');
+  var zlib = require('zlib');
+  ```
   ```
   function unzipFileStream(fileName, cb, options) {
     return new Promise(function(resolve, reject) {
