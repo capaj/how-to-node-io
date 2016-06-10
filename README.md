@@ -101,6 +101,7 @@ Note: This is a work in progress, I will continue to add to this.
     })
   }
 
+  // callback that lets us transform the data as it comes in
   function printDataAsItComesIn(data) {
     if (!data) return;
 	// data = Buffer
@@ -109,7 +110,8 @@ Note: This is a work in progress, I will continue to add to this.
 	var stringData = data.toString('utf8', 0, data.length);
 	console.log(stringData);
   }
-
+  
+  // example:
   unzipFileStream(__dirname + "/latest-all.json.gzip", printDataAsItComesIn, {highWaterMark: 512 * 1024}).then(function() {
 	console.log("\nDone reading");
   }).catch(function(err) {
