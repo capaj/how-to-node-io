@@ -37,7 +37,7 @@ This guide will demonstrate some of the better practices that I have adopted whi
   
 - Reading larger files
   - All files read using this method can read any sized file, since it streams a number of bytes in at a time
-  - We set `highWaterMark` to be equal to the size of the buffer we want, roughly 512kb of data stored in memmory (very efficient)
+  - We set `highWaterMark` to be equal to the size of the buffer we want, roughly 512kb of data stored in memory (very efficient)
   - The callback will have the data in chunks of ~512kb at a time (taking in any more bytes doesnt really help performance)
   - The example demonstrates reading a 7gb file in roughly 5minutes (212 seconds) (https://dumps.wikimedia.org/other/wikibase/wikidatawiki/ - latest-all.json.gz)
   - Note: the data here is gzipped and will not be converted to readable format, for unzipping and streaming readable data see the method below this one.
@@ -77,7 +77,7 @@ This guide will demonstrate some of the better practices that I have adopted whi
 	console.log(err);
   })
   ```
-- Reading and unzipping larger files (7gb in memory)
+- Reading and unzipping larger files (7gb file fize)
   ```
   function unzipFileStream(fileName, cb, options) {
     return new Promise(function(resolve, reject) {
