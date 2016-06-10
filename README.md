@@ -46,7 +46,7 @@ Note: This is a work in progress, I will continue to add to this.
   - All files read using this method can read any sized file, since it streams a number of bytes in at a time
   - We set `highWaterMark` to be equal to the size of the buffer we want, roughly 512kb of data stored in memory (very efficient)
   - The callback will have the data in chunks of ~512kb at a time (taking in any more bytes doesnt really help performance)
-  - The example demonstrates reading a 7gb file in roughly 5minutes (212 seconds) (https://dumps.wikimedia.org/other/wikibase/wikidatawiki/ - latest-all.json.gz)
+  - The example demonstrates reading a 7gb file in roughly 3 minutes (212 seconds) (https://dumps.wikimedia.org/other/wikibase/wikidatawiki/ - latest-all.json.gz)
   - Note: the data here is gzipped and will not be converted to readable format, for unzipping and streaming readable data see the method below this one.
   ```
   // imports at top
