@@ -13,25 +13,9 @@ Note: This is a work in progress, I will continue to add to this.
   - Because this is read in memory - it is not the optimal solution for files exceeding hundreds of megabytes, please see method below this one.
   ```
   // imports at top
-  var fs = require('fs');
+  const fs = require('mz/fs');		// of course you need to install https://www.npmjs.com/package/mz
   ```
   ```
-  // Modern approach
-  function readFile(fileName, options) {
-      return new Promise(function(resolve, reject) {
-      	var cb = function cb(err, data) {
-      		if (err) {
-      			return reject(err);
-      		}
-  
-      		resolve(data);
-      	};
-  
-      	fs.readFile.call(fs, fileName, options, cb);
-      });
-  }
-
-  
   // example:
   readFile(__dirname + "/file.txt").then(function(data) {
      // data = the whole file
